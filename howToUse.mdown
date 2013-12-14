@@ -1,0 +1,65 @@
+<h1>Companies API by Eduardo Murillo</h1>
+
+<h2>Overview:</h2>
+
+I Created a REST / JSON WSDL in Ruby using Sinatra with an API that supports the following:
+<ul>
+<li>Create new company</li>
+<li>Get a list of all companies</li>
+<li>Get details about a company</li>
+<li>Able to update a company</li>
+<li>Able to attach pdf­versions of passport(s) of the directors and beneficial owner(s) of the company</li>
+</ul>
+
+I describe below how you can call via cURL all the different methods.
+
+<h2>Usage:</h2>
+
+<p>Here are the different methods, and their expected parameters.
+When is denoted the "param_" prefix it means that is an input from the user.</p>
+
+<h3>Create a Company</h3>
+<p><b>Description:</b> Here you can create a new company</p>
+<p><b>Post Parameters:</b> </p>
+
+<ul>
+	<li>company['name']</li>
+	<li>company['address']</li>
+	<li>company['city']</li>
+	<li>company['country']</li>
+	<li>company['email']</li>
+	<li>company['phone']</li>
+	<li>company['owners']</li>
+</ul>
+<p><b>Call:</b> curl --data "company['name']=param_name&company['address']=param_address&company['city']=param_city&company['country']=param_country&company['email']=param_email&company['phone']=param_phone&company['owners']=param_owners" http://localhost:9292/create</p>
+<p>Returns: HTTP Status</p>
+
+<h3>Companies List</h3>
+<p>Description: List all existing companies</p>
+<p>Call: curl -i http://localhost:9292/</p>
+<p>Returns: Json Object</p>
+
+<h3>Company Details</h3>
+<p>Description: Get all the details from an specific company</p>
+<p>Call: curl -i http://localhost:9292/details/param_id</p>
+<p>Returns: Json Object</p>
+
+<h3>Update a Company</h3>
+<p>Description: Here you can update an specific field from the company</p>
+<p>Post Parameters: </p>
+
+<ul>
+	<li>company['name']</li>
+	<li>company['address']</li>
+	<li>company['city']</li>
+	<li>company['country']</li>
+	<li>company['email']</li>
+	<li>company['phone']</li>
+	<li>company['owners']</li>
+</ul>
+
+<p>Call: curl --data "company['name']=param_name&company['address']=param_address&company['city']=param_city&company['country']=param_country&company['email']=param_email&company['phone']=param_phone&company['owners']=param_owners" http://localhost:9292/update/param_id</p>
+<p>Returns: HTTP Status</p>
+
+<p>Paragraphs are separated
+by a blank line.</p>

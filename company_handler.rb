@@ -16,10 +16,17 @@ ActiveRecord::Base.establish_connection(
 class Company < ActiveRecord::Base
 end
 
-get "/" do  
+not_found do      
+  response['Access-Control-Allow-Origin'] = '*'
+  content_type :json
+  '{"error":{"message": "Whoops! You requested a method that wasn\'t available"})'
+end
+
+get "/list" do    
+  response['Access-Control-Allow-Origin'] = '*'
   content_type :json
   companies = Company.order("id ASC")
-  redirect "/create" if companies.empty?
+  redirect "/create" if companies.empty?  
   companies.to_json  
 end
 

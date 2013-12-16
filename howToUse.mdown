@@ -2,13 +2,12 @@
 
 <h2>Overview:</h2>
 
-I Created a REST / JSON WSDL in Ruby using Sinatra with an API that supports the following:
+I Created a REST/JSON API in Ruby using Sinatra, that supports the following:
 <ul>
-<li>Create new company</li>
+<li>Create a new company</li>
 <li>Get a list of all companies</li>
 <li>Get details about a company</li>
 <li>Able to update a company</li>
-<li>Able to attach pdf­versions of passport(s) of the directors and beneficial owner(s) of the company</li>
 </ul>
 
 I describe below how you can call via cURL all the different methods.

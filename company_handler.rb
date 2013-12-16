@@ -22,6 +22,14 @@ not_found do
   '{"error":{"message": "Whoops! You requested a method that wasn\'t available"})'
 end
 
+get "/" do
+  erb :howto
+end
+
+get "/client" do
+  erb :client
+end
+
 get "/list" do    
   response['Access-Control-Allow-Origin'] = '*'
   content_type :json
@@ -30,13 +38,11 @@ get "/list" do
   companies.to_json  
 end
 
-get "/create" do
-    status 400  
-end
-
 post "/create" do
+  response['Access-Control-Allow-Origin'] = '*'  
   content_type :json
-  companies = Company.new(params[:company])
+  params = JSON.parse(request.env["rack.input"].read)
+  companies = Company.new(params) 
   if companies.save   
     status 201
   else
@@ -44,24 +50,27 @@ post "/create" do
   end
 end
 
-post "/update/:id" do  
+put "/update/:id" do    
+  response['Access-Control-Allow-Origin'] = '*'
   content_type :json
   companies = Company.find(params[:id])
-  return "NIL" if companies.nil?
-  companies.update(params[:company])  
-  if companies.save  
-    status 202  
-  else
-    status 400
-  end
+  return status 404 if companies.nil?
+  params = JSON.parse(request.env["rack.input"].read)
+  companies.update(params)    
+  companies.save
+  status 202
 end
 
 get "/details/:id" do
-    content_type :json
-    companies = Company.find_by_id(params[:id])    
-    companies.to_json 
+  response['Access-Control-Allow-Origin'] = '*'
+  content_type :json
+  companies = Company.find_by_id(params[:id])        
+  companies.to_json 
 end
 
-get '/hw' do 
-    ("hello world").to_json;
+delete "/delete/:id" do 
+  response['Access-Control-Allow-Origin'] = '*' 
+  companies = Company.find(params[:id])    
+  return "NIL" if companies.nil?
+  companies.delete
 end

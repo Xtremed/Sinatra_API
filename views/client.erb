@@ -23,7 +23,7 @@
                 <td><p><b data-bind="text: name"></b></p><p data-bind="text: address"></p></td>
                 <td>                    
                     <button data-bind="click: $parent.beginEdit" class="btn">Edit</button>
-                    <button data-bind="click: $parent.remove" class="btn">Details</button>
+                    <button data-bind="click: $parent.details" class="btn">Details</button>
                     <button data-bind="click: $parent.remove" class="btn">Delete</button>
                 </td>
             </tr>
@@ -31,9 +31,9 @@
         </table>
         <button data-bind="click: beginAdd" class="btn">Add Task</button>
     </div>
-    <div id="add" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="addDialogLabel" aria-hidden="true">
+     <div id="add" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="addDialogLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
             <h3 id="addDialogLabel">List Company</h3>
         </div>        
         <div class="modal-body">
@@ -41,34 +41,47 @@
                 <div class="control-group">
                     <label class="control-label" for="inputName">Name</label>
                     <div class="controls">
-                        <input data-bind="value: name" type="text" id="inputName" placeholder="Name" style="width: 150px;">
+                        <input data-bind="value: name" type="text" id="company[name]" placeholder="Name" style="width: 150px;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputAddress">Address</label>
                     <div class="controls">
-                        <input data-bind="value: address" type="text" id="inputAddress" placeholder="Address" style="width: 300px;">
+                        <input data-bind="value: address" type="text" id="company[address]" placeholder="Address" style="width: 300px;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputAddress">City</label>
                     <div class="controls">
-                        <input data-bind="value: city" type="text" id="inputAddress" placeholder="City" style="width: 300px;">
+                        <input data-bind="value: city" type="text" id="company[city]" placeholder="City" style="width: 300px;">
                     </div>
-                </div>f
+                </div>
                 <div class="control-group">
                     <label class="control-label" for="inputAddress">Country</label>
                     <div class="controls">
-                        <input data-bind="value: country" type="text" id="inputAddress" placeholder="Country" style="width: 300px;">
+                        <input data-bind="value: country" type="text" id="company[country]" placeholder="Country" style="width: 300px;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputAddress">Owner</label>
                     <div class="controls">
-                        <input data-bind="value: owner" type="text" id="inputAddress" placeholder="Owner" style="width: 300px;">
+                        <input data-bind="value: owner" type="text" id="company[owner]" placeholder="Owner" style="width: 300px;">
                     </div>
-                </div>                                                
+                </div>      
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Email</label>
+                    <div class="controls">
+                        <input data-bind="value: email" type="text" id="company[email]" placeholder="Email" style="width: 300px;">
+                    </div>
+                </div>                 
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Phone</label>
+                    <div class="controls">
+                        <input data-bind="value: phone" type="text" id="company[phone]"  placeholder="Phone" style="width: 300px;">
+                    </div>
+                </div>                                                                             
             </form>
+           
         </div>
         <div class="modal-footer">
             <button data-bind="click: addTask" class="btn btn-primary">Add Company</button>
@@ -77,54 +90,61 @@
     </div>
     <div id="edit" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="editDialogLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="editDialogLabel">Add Task</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+            <h3 id="editDialogLabel">Edit Company</h3>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal">
+                       <form class="form-horizontal">
                 <div class="control-group">
-                    <label class="control-label" for="inputTask">Task</label>
+                    <label class="control-label" for="inputName">Name</label>
                     <div class="controls">
-                        <input data-bind="value: title" type="text" id="inputTask" placeholder="Task title" style="width: 150px;">
+                        <input data-bind="value: name" type="text" id="company[name]" placeholder="Name" style="width: 150px;">
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputDescription">Description</label>
+                    <label class="control-label" for="inputAddress">Address</label>
                     <div class="controls">
-                        <input data-bind="value: description" type="text" id="inputDescription" placeholder="Description" style="width: 300px;">
+                        <input data-bind="value: address" type="text" id="company[address]" placeholder="Address" style="width: 300px;">
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">City</label>
+                    <div class="controls">
+                        <input data-bind="value: city" type="text" id="company[city]" placeholder="City" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Country</label>
+                    <div class="controls">
+                        <input data-bind="value: country" type="text" id="company[country]" placeholder="Country" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Owner</label>
+                    <div class="controls">
+                        <input data-bind="value: owner" type="text" id="company[owner]" placeholder="Owner" style="width: 300px;">
+                    </div>
+                </div>      
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Email</label>
+                    <div class="controls">
+                        <input data-bind="value: email" type="text" id="company[email]" placeholder="Email" style="width: 300px;">
+                    </div>
+                </div>                 
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Phone</label>
+                    <div class="controls">
+                        <input data-bind="value: phone" type="text" id="company[phone]"  placeholder="Phone" style="width: 300px;">
+                    </div>
+                </div>                                                                             
             </form>
         </div>
         <div class="modal-footer">
-            <button data-bind="click:editTask" class="btn btn-primary">Update Task</button>
+            <button data-bind="click:editTask" class="btn btn-primary">Update Company</button>
             <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
         </div>
     </div>
-    <div id="login" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-        <div class="modal-header">
-            <h3 id="loginLabel">Sign In</h3>
-        </div>
-        <div class="modal-body">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label" for="inputUsername">Username</label>
-                    <div class="controls">
-                        <input data-bind="value: username" type="text" id="inputUsername" placeholder="Username">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="inputPassword">Password</label>
-                    <div class="controls">
-                        <input data-bind="value: password" type="password" id="inputPassword" placeholder="Password">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button data-bind="click: login" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Sign In</button>
-        </div>
-    </div>
+
     <script type="text/javascript">
         function TasksViewModel() {
             var self = this;
@@ -159,6 +179,10 @@
                 })
             }
 
+            self.beginDetails = function() {
+                $('#detail').modal('show');
+            }            
+
             self.listDetails = function(id) {
                 $.getJSON( self.tasksURI+"/details/"+id, function( data ) {  
                 var items = [];
@@ -168,18 +192,23 @@
                         address: ko.observable(val.address),
                         city: ko.observable(val.city),
                         country: ko.observable(val.country),
-                        owner: ko.observable(val.owner)
+                        owner: ko.observable(val.owner),
+                        email: ko.observable(val.email),
+                        phone: ko.observable(val.phone)                                                
                     })
                 });                
                 })
             }            
 
-
             self.updateTask = function(task, newTask) {
                 var i = self.tasks.indexOf(task);
-                self.tasks()[i].uri(newTask.uri);
-                self.tasks()[i].title(newTask.title);
-                self.tasks()[i].description(newTask.description);                
+                self.tasks()[i].name(newTask.name);
+                self.tasks()[i].address(newTask.address); 
+                self.tasks()[i].city(newTask.city);
+                self.tasks()[i].country(newTask.country);   
+                self.tasks()[i].owner(newTask.owner);
+                self.tasks()[i].email(newTask.email);        
+                self.tasks()[i].phone(newTask.phone);                                             
             }
 
             self.beginAdd = function() {
@@ -192,7 +221,9 @@
                         address: ko.observable(data.task.address),                       
                         city:  ko.observable(data.task.city),                       
                         country:  ko.observable(data.task.country),                       
-                        owner:  ko.observable(data.task.owner)                       
+                        owner:  ko.observable(data.task.owner),
+                        email:  ko.observable(data.task.email),                       
+                        phone:  ko.observable(data.task.phone)                                                 
                     });
                 });
             }
@@ -201,17 +232,14 @@
                 $('#edit').modal('show');
             }
             self.edit = function(task, data) {
-                self.ajax(task.uri(), 'PUT', data).done(function(res) {
+                self.ajax('http://rocky-fjord-5148.herokuapp.com/update', 'PUT', data).done(function(res) {
                     self.updateTask(task, res.task);
                 });
             }
             self.remove = function(task) {
-                self.ajax(task.uri(), 'DELETE').done(function() {
+                self.ajax('http://rocky-fjord-5148.herokuapp.com/delete', 'DELETE').done(function() {
                     self.tasks.remove(task);
                 });
-            }
-            self.beginLogin = function() {
-                $('#login').modal('show');
             }
             
             self.listCompany();
@@ -222,7 +250,9 @@
             self.address = ko.observable();
             self.city = ko.observable();
             self.country = ko.observable();
-            self.owner = ko.observable();            
+            self.owner = ko.observable();       
+            self.email = ko.observable();
+            self.phone = ko.observable();     
  
             self.addTask = function() {
                 $('#add').modal('hide');
@@ -231,54 +261,61 @@
                     address: self.address(),
                     city: self.city(),
                     country: self.country(),                    
-                    owner: self.owner()                                        
+                    owner: self.owner(),       
+                    email: self.email(),   
+                    phone: self.phone()                                    
                 });
                 self.name("");
                 self.address("");
                 self.city("");
                 self.country("");
-                self.owner("");                
+                self.owner("");       
+                self.email("");  
+                self.phone("");           
             }
         }
         function EditTaskViewModel() {
             var self = this;
-            self.title = ko.observable();
-            self.description = ko.observable();            
+            self.name = ko.observable();
+            self.address = ko.observable();
+            self.city = ko.observable();
+            self.country = ko.observable();
+            self.owner = ko.observable();       
+            self.email = ko.observable();
+            self.phone = ko.observable();            
  
             self.setTask = function(task) {
                 self.task = task;
-                self.title(task.title());
-                self.description(task.description());                
+                self.name(task.name());
+                self.address(task.address());         
+                self.city(task.city());
+                self.country(task.country());    
+                self.owner(task.owner());
+                self.email(task.email());   
+                self.phone(task.phone());                                                          
                 $('edit').modal('show');
             }
  
             self.editTask = function() {
                 $('#edit').modal('hide');
                 tasksViewModel.edit(self.task, {
-                    title: self.title(),
-                    description: self.description()                     
+                    name: self.name(),
+                    address: self.address(),
+                    city: self.city(),
+                    country: self.country(),                    
+                    owner: self.owner(),       
+                    email: self.email(),   
+                    phone: self.phone()                 
                 });
-            }
-        }
-        function LoginViewModel() {
-            var self = this;
-            self.username = ko.observable();
-            self.password = ko.observable();
- 
-            self.login = function() {
-                $('#login').modal('hide');
-                tasksViewModel.login(self.username(), self.password());
             }
         }
         
         var tasksViewModel = new TasksViewModel();
         var addTaskViewModel = new AddTaskViewModel();
         var editTaskViewModel = new EditTaskViewModel();
-        var loginViewModel = new LoginViewModel();
         ko.applyBindings(tasksViewModel, $('#main')[0]);
         ko.applyBindings(addTaskViewModel, $('#add')[0]);
         ko.applyBindings(editTaskViewModel, $('#edit')[0]);
-        ko.applyBindings(loginViewModel, $('#login')[0]);
     </script>
 </body>
 </html>

@@ -23,25 +23,26 @@ When is denoted the "param_" prefix it means that is an input from the user.</p>
 <p><b>Post Parameters:</b> </p>
 
 <ul>
-	<li>company['name']</li>
-	<li>company['address']</li>
-	<li>company['city']</li>
-	<li>company['country']</li>
-	<li>company['email']</li>
-	<li>company['phone']</li>
-	<li>company['owners']</li>
+	<li>name</li>
+	<li>address</li>
+	<li>city</li>
+	<li>country</li>
+	<li>email</li>
+	<li>phone</li>
+	<li>owners</li>
 </ul>
+
 <p>Call: curl -X PUT -d '{"name":"param_name","address":"param_address","city":"param_city", "country":"param_country", "email":"param_email", "phone":"param_phone", "owners":"param_owner"}' http://rocky-fjord-5148.herokuapp.com/create</p>
 <p>Returns: HTTP Status</p>
 
 <h3>Companies List</h3>
 <p>Description: List all existing companies</p>
-<p>Call: curl -i http://rocky-fjord-5148.herokuapp.com/list</p>
+<p>Call: curl -X GET http://rocky-fjord-5148.herokuapp.com/list</p>
 <p>Returns: Json Object</p>
 
 <h3>Company Details</h3>
 <p>Description: Get all the details from an specific company</p>
-<p>Call: curl -i http://rocky-fjord-5148.herokuapp.com/details/param_id</p>
+<p>Call: curl -X GET http://rocky-fjord-5148.herokuapp.com/details/param_id</p>
 <p>Returns: Json Object</p>
 
 <h3>Update a Company</h3>

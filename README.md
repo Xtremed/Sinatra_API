@@ -1,0 +1,68 @@
+<h1>Companies API by Eduardo Murillo</h1>
+
+<h2>Overview:</h2>
+<p>I Created a REST/JSON API in Ruby using Sinatra, that supports the following:</p>
+<ul>
+<li>Create a new company</li>
+<li>Get a list of all companies</li>
+<li>Get details about a company</li>
+<li>Able to update a company</li>
+</ul>
+
+<p>I describe below how you can call via cURL all the different methods.</p>
+
+<h2>Usage:</h2>
+
+<p>Here are the different methods, and their expected parameters.
+When is denoted the "param_" prefix it means that is an input from the user.</p>
+
+<h3>Create a Company</h3>
+<p><b>Description:</b> Here you can create a new company</p>
+<p><b>Post Parameters:</b> </p>
+
+<ul>
+	<li>name</li>
+	<li>address</li>
+	<li>city</li>
+	<li>country</li>
+	<li>email</li>
+	<li>phone</li>
+	<li>owners</li>
+</ul>
+
+<p>Call: curl -X PUT -d '{"name":"param_name","address":"param_address","city":"param_city", "country":"param_country", "email":"param_email", "phone":"param_phone", "owners":"param_owner"}' http://rocky-fjord-5148.herokuapp.com/create</p>
+<p>Returns: HTTP Status</p>
+
+<h3>Companies List</h3>
+<p>Description: List all existing companies</p>
+<p>Call: curl -X GET http://rocky-fjord-5148.herokuapp.com/list</p>
+<p>Returns: Json Object</p>
+
+<h3>Company Details</h3>
+<p>Description: Get all the details from an specific company</p>
+<p>Call: curl -X GET http://rocky-fjord-5148.herokuapp.com/details/param_id</p>
+<p>Returns: Json Object</p>
+
+<h3>Update a Company</h3>
+<p>Description: Here you can update an specific field from the company</p>
+<p>Put Parameters: </p>
+
+<ul>
+	<li>name</li>
+	<li>address</li>
+	<li>city</li>
+	<li>country</li>
+	<li>email</li>
+	<li>phone</li>
+	<li>owners</li>
+</ul>
+
+<p>Call: curl -X PUT -d '{"name":"param_name","address":"param_address","city":"param_city", "country":"param_country", "email":"param_email", "phone":"param_phone", "owners":"param_owner"}' http://rocky-fjord-5148.herokuapp.com/update/param_id</p>
+
+<p>Returns: HTTP Status</p>
+
+<h2>Authentication (ToDO):</h2>
+
+<p>Still didn't implemented an authentication for the API but i think the best way it's to use a generated Unique API key for each user, the unique API keys authentication skips the hashing step and therefore speeds up the calls compared with OAuth.</p>
+
+<p>Also for security reasons, the API key tends to be more secure, with long series of random characters, making it more difficult to be a victim of brute force or dictionary attacks.</p>
